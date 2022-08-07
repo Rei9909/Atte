@@ -15,7 +15,7 @@ class CreateAtteUsersTable extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->unsignedBigInteger('id')->primary()->nullable(false);
+            $table->id();
             $table->string('name',255)->nullable(false);
             $table->string('email',255)->unique('email')->nullable(false);
             $table->string('password',255)->nullable(false);

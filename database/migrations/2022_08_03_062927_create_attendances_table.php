@@ -16,13 +16,13 @@ class CreateAttendancesTable extends Migration
     public function up()
     {
         Schema::create('attendances', function (Blueprint $table) {
-            $table->unsignedBigInteger('id')->primary()->nullable(false);
+            $table->id();
             $table->foreignId('user_id')->constrained();
             $table->date('date')->nullable(false);
             $table->time('start_time')->nullable(false);
             $table->time('end_time');
-            $table->timestamp('created_at');
-            $table->timestamp('updated_at');
+            $table->timestamp('created_at')->useCurrent()->nullable();
+            $table->timestamp('updated_at')->useCurrent()->nullable();
         });
     }
 
